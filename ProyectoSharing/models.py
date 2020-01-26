@@ -14,12 +14,12 @@ class Genero(models.Model):
     
     
 class Usuario(models.Model):
-    id_usuario = models.AutoField(primary_key=True)
+    #id_usuario = models.AutoField(primary_key=True)
+    correo_electronico = models.CharField(primary_key=True, max_length=30)
     usuario = models.CharField(max_length=30)
     nombres = models.CharField(max_length=30)
-    apellidos = models.CharField(max_length=30)
-    correo_electronico = models.EmailField()
-    contrasena = models.CharField(max_length=64)  #hash
+    apellidos = models.CharField(max_length=30)    
+    contrasena = models.CharField(max_length=128)  #hash
     telefono = models.CharField(max_length=10)
     num_libros = models.IntegerField(default=0)
     def __str__(self):
@@ -38,7 +38,7 @@ class Libros_subidos(models.Model):
     id_libro_subido = models.AutoField(primary_key=True)
     descripcion_estado = models.CharField(max_length=500)
     disponibilidad = models.BooleanField(default=True)
-    id_usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    correo_electronico = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     isbn = models.ForeignKey('Libro', on_delete=models.CASCADE)
     
 
@@ -86,8 +86,8 @@ class Intercambio(models.Model):
     calificacion2 = models.FloatField(blank=True)
     comentario1 = models.CharField(max_length=500, blank=True)
     comentario2 = models.CharField(max_length=500, blank=True)
-    id_usuario1 = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="id_usuario1")
-    id_usuario2 = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="id_usuario2")
+    correo_electronico1 = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="correo_electronico1")
+    correo_electronico2 = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="correo_electronico2")
     id_libro_subido1 = models.ForeignKey('Libros_subidos', on_delete=models.CASCADE, related_name="id_libro_subido1", blank=True)
     id_libro_subido2 = models.ForeignKey('Libros_subidos', on_delete=models.CASCADE, related_name="id_libro_subido2")
     def __str__(self):
@@ -102,9 +102,9 @@ class Calificacion(models.Model):
     calificacion = models.FloatField()
     comentario = models.CharField(max_length=500)
     id_libro_subido = models.ForeignKey('Libros_subidos', on_delete=models.CASCADE)
-    id_usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    correo_electronico = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     class Meta:
         verbose_name = "Calificación"
         verbose_name_plural = "Calificaciones"
     def __str__(self):
-        return self.id_usuario + "(" + self.id_libro + ": " + self.calificacion + ")"
+        return self.correo_electronico + "(" + self.id_libro + ": " + self.calificacion + ")"
