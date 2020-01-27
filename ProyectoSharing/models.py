@@ -23,7 +23,7 @@ class Usuario(models.Model):
     telefono = models.CharField(max_length=10)
     num_libros = models.IntegerField(default=0)
     def __str__(self):
-        return self.usuario 
+        return self.correo_electronico 
 
 
 class Libro(models.Model):
