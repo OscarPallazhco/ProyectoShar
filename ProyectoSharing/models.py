@@ -31,7 +31,7 @@ class Libro(models.Model):
     titulo = models.CharField(max_length=120)
     id_genero = models.ForeignKey('Genero', on_delete=models.CASCADE)
     def __str__(self):
-        return self.titulo_libro
+        return self.titulo
     
     
 class Libros_subidos(models.Model):
