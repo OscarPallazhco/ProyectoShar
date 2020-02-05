@@ -40,7 +40,8 @@ class Libros_subidos(models.Model):
     disponibilidad = models.BooleanField(default=True)
     correo_electronico = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     isbn = models.ForeignKey('Libro', on_delete=models.CASCADE)
-    
+    def __str__(self):
+        return self.isbn.__str__()+"-"+self.correo_electronico.__str__()
 
 
 class Autor(models.Model):
@@ -80,18 +81,18 @@ class Intercambio(models.Model):
     id_intercambio = models.AutoField(primary_key=True)
     estado = models.CharField(max_length=3, choices=ESTADO_CHOICES, default=SOLICITADO)
     fecha_solicitud = models.DateTimeField(auto_now=True)
-    fecha_prestamo = models.DateTimeField(blank=True)
-    fecha_devolucion = models.DateTimeField(blank=True)
-    calificacion1 = models.FloatField(blank=True)
-    calificacion2 = models.FloatField(blank=True)
-    comentario1 = models.CharField(max_length=500, blank=True)
-    comentario2 = models.CharField(max_length=500, blank=True)
+    fecha_prestamo = models.DateTimeField(blank=True,null=True)
+    fecha_devolucion = models.DateTimeField(blank=True,null=True)
+    calificacion1 = models.FloatField(blank=True,null=True)
+    calificacion2 = models.FloatField(blank=True, null=True)
+    comentario1 = models.CharField(max_length=500, blank=True, null=True)
+    comentario2 = models.CharField(max_length=500, blank=True, null=True)
     correo_electronico1 = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="correo_electronico1")
     correo_electronico2 = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="correo_electronico2")
-    id_libro_subido1 = models.ForeignKey('Libros_subidos', on_delete=models.CASCADE, related_name="id_libro_subido1", blank=True)
+    id_libro_subido1 = models.ForeignKey('Libros_subidos', on_delete=models.CASCADE, related_name="id_libro_subido1", blank=True, null=True)
     id_libro_subido2 = models.ForeignKey('Libros_subidos', on_delete=models.CASCADE, related_name="id_libro_subido2")
     def __str__(self):
-        return self.id_libro_subido2, self.fecha_solicitud
+        return self.id_libro_subido2.__str__() +"-"+ self.fecha_solicitud.__str__()
     class Meta:
         verbose_name = "Intercambio"
         verbose_name_plural = "Intercambios"
@@ -107,4 +108,4 @@ class Calificacion(models.Model):
         verbose_name = "Calificación"
         verbose_name_plural = "Calificaciones"
     def __str__(self):
-        return self.correo_electronico + "(" + self.id_libro + ": " + self.calificacion + ")"
+        return self.correo_electronico.__str__() + "(" + self.id_libro_subido.__str__() + ": " + str(self.calificacion) + ")"
