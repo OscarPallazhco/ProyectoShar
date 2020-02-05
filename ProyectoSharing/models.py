@@ -59,7 +59,7 @@ class Autor_Libro(models.Model):
     isbn = models.ForeignKey('Libro', on_delete=models.CASCADE)
     id_autor = models.ForeignKey('Autor', on_delete=models.CASCADE)
     def __str__(self):
-        return self.id_autor,self.isbn
+        return self.id_autor.__str__() +"-"+self.isbn.__str__()
     class Meta:
         verbose_name = "Autor_Libro"
         verbose_name_plural = "Autores_Libros"    
