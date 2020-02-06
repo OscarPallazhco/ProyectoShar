@@ -80,9 +80,9 @@ class Intercambio(models.Model):
     
     id_intercambio = models.AutoField(primary_key=True)
     estado = models.CharField(max_length=3, choices=ESTADO_CHOICES, default=SOLICITADO)
-    fecha_solicitud = models.DateTimeField(auto_now=True)
-    fecha_prestamo = models.DateTimeField(blank=True,null=True)
-    fecha_devolucion = models.DateTimeField(blank=True,null=True)
+    fecha_solicitud = models.DateField(auto_now=True)
+    fecha_prestamo = models.DateField(blank=True,null=True)
+    fecha_devolucion = models.DateField(blank=True,null=True)
     calificacion1 = models.FloatField(blank=True,null=True)
     calificacion2 = models.FloatField(blank=True, null=True)
     comentario1 = models.CharField(max_length=500, blank=True, null=True)
