@@ -30,6 +30,7 @@ class Libro(models.Model):
     isbn = models.CharField(primary_key=True, max_length=13)
     titulo = models.CharField(max_length=120)
     id_genero = models.ForeignKey('Genero', on_delete=models.CASCADE)
+    imagen = models.ImageField(null=True, upload_to="Media")
     def __str__(self):
         return self.titulo
     
