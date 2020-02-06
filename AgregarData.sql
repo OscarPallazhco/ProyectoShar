@@ -15,20 +15,20 @@ DELETE FROM "ProyectoSharing_genero";
 
 INSERT INTO public."ProyectoSharing_genero"(id_genero, nom_genero, descripcion, total_libros ) 
 VALUES 
-(1, 'Clásico', 'Libros que han perdurado en el tiempo.', 0),
-(2, 'Suspenso', 'Libros que generan intriga en los lectores', 0),
-(3, 'Terror', 'Libros que generan miedo', 0),
-(4, 'Romance', 'Libros romáticos', 0),
-(5, 'Juvenil', 'Libros enfocados al público juvenil', 0),
-(6, 'Comedia', 'Libros que divierten a sus lectores', 0);
+(1, 'Clásico', 'Libros que han perdurado en el tiempo.', 2),
+(2, 'Suspenso', 'Libros que generan intriga en los lectores', 1),
+(3, 'Terror', 'Libros que generan miedo', 1),
+(4, 'Romance', 'Libros romáticos', 1),
+(5, 'Juvenil', 'Libros enfocados al público juvenil', 1),
+(6, 'Comedia', 'Libros que divierten a sus lectores', 1);
 
 INSERT INTO public."ProyectoSharing_usuario"(correo_electronico, usuario, nombres, apellidos, contrasena, telefono, num_libros) 
 VALUES 
-('email1@gmail.com', 'usuario1', 'nombres1', 'apellidos1', 'contrasena1', '0999999991',0),
-('email2@gmail.com', 'usuario2', 'nombres2', 'apellidos2', 'contrasena2', '0999999992',0),
-('email3@gmail.com', 'usuario3', 'nombres3', 'apellidos3', 'contrasena3', '0999999993',0),
-('email4@gmail.com', 'usuario4', 'nombres4', 'apellidos4', 'contrasena4', '0999999994',0),
-('email5@gmail.com', 'usuario5', 'nombres5', 'apellidos5', 'contrasena5', '0999999995',0),
+('email1@gmail.com', 'usuario1', 'nombres1', 'apellidos1', 'contrasena1', '0999999991',3),
+('email2@gmail.com', 'usuario2', 'nombres2', 'apellidos2', 'contrasena2', '0999999992',1),
+('email3@gmail.com', 'usuario3', 'nombres3', 'apellidos3', 'contrasena3', '0999999993',1),
+('email4@gmail.com', 'usuario4', 'nombres4', 'apellidos4', 'contrasena4', '0999999994',1),
+('email5@gmail.com', 'usuario5', 'nombres5', 'apellidos5', 'contrasena5', '0999999995',2),
 ('email6@gmail.com', 'usuario6', 'nombres6', 'apellidos6', 'contrasena6', '0999999996',0);
 
 
@@ -64,4 +64,4 @@ INSERT INTO public."ProyectoSharing_intercambio"(
 	(5, 'SOL',now(), 'email1@gmail.com','email5@gmail.com',7),
 	(6, 'SOL',now(), 'email2@gmail.com','email4@gmail.com',6),
 	(7, 'SOL',now(), 'email3@gmail.com','email1@gmail.com',1),
-	(8, 'SOL',now(), 'email3@gmail.com','email2@gmail.com',5);
+	(8, 'SOL',now(), 'email3@gmail.com','email2@gmail.com',4);
