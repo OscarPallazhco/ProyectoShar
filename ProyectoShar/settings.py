@@ -76,14 +76,24 @@ WSGI_APPLICATION = 'ProyectoShar.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'ProyectoShar',
+    #     'USER':'postgres',
+    #     'PASSWORD':'root',
+    #     'HOST':'127.0.0.1',
+    #     'DATABASE_PORT':'5432',
+    # }
+    
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ProyectoShar',
-        'USER':'postgres',
-        'PASSWORD':'root',
-        'HOST':'127.0.0.1',
+        'NAME': 'd5s8a68q7uvh59',
+        'USER':'wsqdxaholgfvmm',
+        'PASSWORD':'02ba631e5c4fc15123e17ed1a73f0998c4b8cb9e06eecf8e09b179386dc98f4f',
+        'HOST':'ec2-52-202-185-87.compute-1.amazonaws.com',
         'DATABASE_PORT':'5432',
     }
+    
 }
 
 
